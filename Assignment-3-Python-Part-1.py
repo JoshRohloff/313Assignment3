@@ -29,6 +29,13 @@ s = 'django'
 
 # Use indexing to reverse the string
 
+print(s[0])
+print(s[-1])
+print(s[0:3])
+print(s[1:3])
+print(s[4:5])
+print(s.reverse)
+
 
 ###############
 # Problem 2 ## (2 points)
