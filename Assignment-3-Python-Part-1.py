@@ -45,6 +45,8 @@ print(s.reverse)
 l = [5, 7, [3, 5, 'hello', 8]]
 # Reassign "hello" to be "goodbye"
 
+l[3[3]] = 'goodbye'
+
 
 ###############
 # Problem 3 ## (3 points)
@@ -58,6 +60,10 @@ d2 = {'k1': {'k2': 'hello'}}
 
 d3 = {'k1': [{'nest_key': ['this is deep', ['hello']]}]}
 
+d1[2]
+d2[2[2]]
+d3[2[[2[2[1]]]]]
+
 
 ###############
 # Problem 4 ## (2 points)
@@ -65,6 +71,9 @@ d3 = {'k1': [{'nest_key': ['this is deep', ['hello']]}]}
 
 # Use a set to find the unique values of the list below:
 mylist = [1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3]
+
+myset = set(mylist)
+print(set)
 
 
 ###############
@@ -77,6 +86,8 @@ age = 20
 
 # Use print formatting to print the following string:
 "Hello my friend's name is Bob and he is 20 years old"
+
+print("Hello my friend's name is "+name+" and he is "+age+" years old")
 
 
 # Complete the tasks below by writing functions!
@@ -95,7 +106,19 @@ age = 20
 # arrayCheck([1, 1, 2, 1, 2, 3]) → True
 
 def arrayCheck(nums):
-    # CODE GOES HERE
+  one = False
+  two = False
+  three = False
+  for i in nums:
+    if i == 1:
+      one = True
+    elif i == 2:
+      two == True
+    elif i == 3:
+      three = True
+  return one&two&three
+print(arrayCheck([1,1,2,3,1]))
+
 
     #####################
     # -- PROBLEM 7 -- ## (3 points)
@@ -110,9 +133,10 @@ def arrayCheck(nums):
     # stringBits('Hi') → 'H'
     # stringBits('Heeololeo') → 'Hello'
 
-
 def stringBits(str):
-  # CODE GOES HERE
+  return str[0::2]
+print(arrayCheck("Hello"))
+
 
     #####################
     # -- PROBLEM 8 -- ## (4 points)
@@ -129,10 +153,20 @@ def stringBits(str):
     # end_other('Hiabc', 'abc') → True
     # end_other('AbC', 'HiaBc') → True
     # end_other('abc', 'abXabc') → True
-
-
+    
 def end_other(a, b):
-  # CODE GOES HERE
+  a = a.lower()
+  b = b.lower()
+  if len(b) > len(a):
+    diff = len(b)-len(a)
+    b = b[diff:]
+    return a == b
+  else:
+    diff = len(a)-len(b)
+    a = a[diff:]
+    return b == a
+print(end_other('AbC', 'HiaBc'))
+
 
     #####################
     # -- PROBLEM 9 -- ## (4 points)
@@ -145,9 +179,15 @@ def end_other(a, b):
     # doubleChar('AAbb') → 'AAAAbbbb'
     # doubleChar('Hi-There') → 'HHii--TThheerree'
 
-
 def doubleChar(str):
-  # CODE GOES HERE
+  # initial = list(str)
+  # str = list(str*2)
+  # for i in str:
+  #   str[i*2] = initial[i]
+  # return ''.join(str)
+    
+# print(doubleChar("fsad"))
+
 
     #####################
     # -- PROBLEM 10 -- ## (6 points)
@@ -170,13 +210,13 @@ def doubleChar(str):
     # no_teen_sum(2, 13, 1) → 3
     # no_teen_sum(2, 1, 14) → 3
 
-
 def no_teen_sum(a, b, c):
-  # CODE GOES HERE
+  
 
 
 def fix_teen(n):
-  # CODE GOES HERE
+  
+
 
     #####################
     # -- PROBLEM 11 -- ## (7 points)
@@ -186,3 +226,33 @@ def fix_teen(n):
     # Implement the getter and setter methods and the special method that returns the string representation of the object's data
 
     # Next create two employee objects with appropriate data and demonstrate at least one getter and and setter methods on these objects
+class Employee:
+  def __init__(self,first,last,designation):
+    self.first = first
+    self.last = last
+    self.designation = designation
+
+  def getFirst():
+    return first
+  def getLast():
+    return last
+  def getDesignation():
+    return designation
+  def setFirst(newFirst):
+    first = newFirst
+  def setLast(newLast):
+    last = newLast
+  def setDesignation(newDesignation):
+    designation = newDesignation
+  
+  def __str__(self):
+    return f"{self.first} {self.last}({self.designation})"
+  
+e1 = Employee("Joe", "Goldberg", "Manager")
+e2 = Employee("Carol", "Joseph", "Intern")
+print(e1.getFirst)
+print(e2.getDesignation)
+e1.setFirst("Bob")
+e2.setDesignation("Fulltime")
+print(e1.getFirst)
+print(e2.getDesignation)
